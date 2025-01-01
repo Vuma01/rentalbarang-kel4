@@ -1,0 +1,9 @@
+.main{
+    height: 100vh;
+}
+.sidebar a:hover{
+    background: #1d1d1d;
+}
+.sidebar .link-active{
+    background: #1d1d1d;
+}
