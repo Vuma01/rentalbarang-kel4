@@ -1,4 +1,3 @@
-
 @extends('layouts.main')
 
 @section('title', 'Items')
@@ -15,7 +14,6 @@
     </div>
 @endif
 
-@if($items->isEmpty())
 <table class="table table-hover">
     <thead>
         <tr>
@@ -28,29 +26,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td colspan="6" class=" text-center">No items available.</td>
-        </tr>
-    </tbody>
-</table>
-@else
-    <table class="table">
-        <thead>
+        @if($items->isEmpty())
             <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Stock</th>
-                <th>Image</th>
-                <th>Actions</th>
+                <td colspan="6" class="text-center">No items available.</td>
             </tr>
-        </thead>
-        <tbody>
+        @else
             @foreach($items as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->category->name }}</td>
+                    <td>{{ $item->category->name ?? 'No Category' }}</td>
                     <td>{{ $item->stock }}</td>
                     <td>
                         @if($item->image)
@@ -58,10 +43,9 @@
                                 alt="{{ $item->name }}" width="50" class="img-thumbnail"
                                 style="cursor: pointer;"
                                 data-bs-toggle="modal"
-                                data-bs-target="#imageModal"
-                                data-bs-image="{{ asset('storage/' . $item->image) }}">
+                                data-bs-target="#imageModal-{{ $item->id }}">
                         @else
-                            N/A
+                            <span class="text-muted">N/A</span>
                         @endif
                     </td>
                     <td>
@@ -74,21 +58,19 @@
                         </form>
                     </td>
                 </tr>
+
+                <!-- Modal -->
+                <div class="modal fade" id="imageModal-{{ $item->id }}" tabindex="-1" aria-labelledby="imageModalLabel-{{ $item->id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             @endforeach
-        </tbody>
-    </table>
-@endif
-
-
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body text-center">
-                <img id="popupImage" src="" alt="Popup Image" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</div>
-
+        @endif
+    </tbody>
+</table>
 @endsection

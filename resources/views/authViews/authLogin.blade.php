@@ -46,7 +46,7 @@
                     <form action="/login" method="POST">
                         @csrf
                         <div data-mdb-input-init class="form-outline mb-4">
-                            <input type="number" id="phone" name="phone" class="form-control form-control-lg" placeholder="Nomor HP" required />
+                            <input type="number" id="nim" name="nim" class="form-control form-control-lg" placeholder="NIM" required />
                         </div>
 
                         <div class="form-outline mb-4">

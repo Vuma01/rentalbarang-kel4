@@ -22,7 +22,8 @@
                 <th>#</th>
                 <th>Name</th>
                 <th>Address</th>
-                <th>Phone</th>
+                <th>NIM</th>
+                <th>Email</th>
                 <th>Role</th>
                 <th>Actions</th>
             </tr>
@@ -33,7 +34,14 @@
                 <td>{{ $index + 1 }}</td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->address }}</td>
-                <td>{{ $user->phone }}</td>
+                <td>{{ $user->nim }}</td>
+                <td>
+                    @if ($user->email == null)
+                    <span class="text-muted">N/A</span>
+                    @else
+                    {{ $user->email }}
+                    @endif
+                </td>
                 <td>{{ ucfirst($user->role) }}</td>
                 <td class="d-flex gap-2">
                     <!-- Tombol Hapus -->

@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->enum('role', ['admin', 'user'])->default('user');
             $table->string('name');
+            $table->string('nim')->unique();
+            $table->string('email')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->text('address')->nullable();
-            $table->string('phone')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

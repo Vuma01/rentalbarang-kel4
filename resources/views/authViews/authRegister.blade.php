@@ -44,19 +44,22 @@
                 <form action="" method="POST">
                     @csrf
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="Username" required />
+                        <input type="text" id="name" name="name" class="form-control form-control-lg" placeholder="Full Name" required />
                     </div>
 
                     <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password" required />
-                    </div>
-
-                    <div data-mdb-input-init class="form-outline mb-4">
-                        <input type="number" id="phone" name="phone" class="form-control form-control-lg" placeholder="Nomor HP" required />
+                        <input type="number" id="nim" name="nim" class="form-control form-control-lg" placeholder="NIM" required />
                     </div>
 
                     <div data-mdb-input-init class="form-outline mb-4">
                         <input type="text" id="address" name="address" class="form-control form-control-lg" placeholder="Alamat" required />
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="email" id="email" name="email" class="form-control form-control-lg" placeholder="Email" required />
+                    </div>
+
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password" required />
                     </div>
 
                     <div class="d-flex justify-content-around align-items-center mb-4">

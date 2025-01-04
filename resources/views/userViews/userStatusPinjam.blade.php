@@ -30,8 +30,13 @@
                     </div>
                     <p>Peminjam: {{ $loan->user->name }}</p>
                     <p>Category: {{ $loan->item->category->name }}</p>
-                    <p>Phone: {{ $loan->user->phone }}</p>
+                    <p>Phone: @if ($loan->user->phone != null)
+                        {{ $loan->user->phone }}
+                    @else
+                        No phone number provided
+                    @endif</p>
                     <p>Address: {{ $loan->user->address }}</p>
+                    <p>Email: {{$loan->user->email}}</p>
                     <p>Start Date: {{ $loan->start_date }}</p>
                     <p>End Date: {{ $loan->end_date }}</p>
                 </div>

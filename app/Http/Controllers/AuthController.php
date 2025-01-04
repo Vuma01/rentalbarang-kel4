@@ -25,9 +25,10 @@ class AuthController extends Controller
     // Validasi input
     $validated = $r->validate([
         'name' => 'required|max:255',
-        'phone' => 'nullable|max:255|unique:users',
+        'nim' => 'nullable|max:255|unique:users',
         'password' => 'required|max:255',
         'address' => 'required|max:255',
+        'email' => 'required|unique:users',
     ]);
 
     // Hash password
@@ -46,10 +47,10 @@ class AuthController extends Controller
     public function authenticate(Request $r)
 {
 
-   
+
 
     $credentials = $r->validate([
-        'phone' => 'required',
+        'nim' => 'required',
         'password' => 'required',
     ]);
 

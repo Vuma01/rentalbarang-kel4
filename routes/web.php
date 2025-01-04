@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/', [AuthController::class, 'login'])->name('login');
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'store']);
 Route::post('/login', [AuthController::class, 'authenticate']);
@@ -71,8 +72,7 @@ Route::get('/user-items/{item}', [UserItemController::class, 'detail']);
 Route::post('/user-items/{item}/pinjam', [UserItemController::class, 'pinjam']);
 Route::get('/user-item/status', [UserItemController::class, 'status']);
 });
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+
 
 
