@@ -44,12 +44,15 @@
                 </td>
                 <td>{{ ucfirst($user->role) }}</td>
                 <td class="d-flex gap-2">
-                    <!-- Tombol Hapus -->
+                    @if ($user->role != 'admin')
                     <form action="/users/{{$user->id}}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">Hapus</button>
                     </form>
+                    @else
+                    <button class="btn btn-danger btn-sm" disabled >Hapus</button>
+                    @endif
                 </td>
             </tr>
             @endforeach
