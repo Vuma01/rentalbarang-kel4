@@ -51,7 +51,7 @@
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus pengguna ini?')">Hapus</button>
                     </form>
                     @else
-                    <button class="btn btn-danger btn-sm" disabled >Hapus</button>
+                    -
                     @endif
                 </td>
             </tr>
